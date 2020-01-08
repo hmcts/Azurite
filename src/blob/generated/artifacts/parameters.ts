@@ -822,22 +822,9 @@ export const include1: msRest.OperationQueryParameter = {
   mapper: {
     serializedName: "include",
     type: {
-      name: "Sequence",
-      element: {
-        type: {
-          name: "Enum",
-          allowedValues: [
-            "copy",
-            "deleted",
-            "metadata",
-            "snapshots",
-            "uncommittedblobs"
-          ]
-        }
-      }
+      name: "String",
     }
   },
-  collectionFormat: msRest.QueryCollectionFormat.Csv
 };
 export const leaseId0: msRest.OperationParameter = {
   parameterPath: [
