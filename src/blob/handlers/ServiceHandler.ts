@@ -58,12 +58,26 @@ export default class ServiceHandler extends BaseHandler
     }
   };
 
-  public getUserDelegationKey(
+  public async getUserDelegationKey(
     keyInfo: Models.KeyInfo,
     options: Models.ServiceGetUserDelegationKeyOptionalParams,
     context: Context
   ): Promise<Models.ServiceGetUserDelegationKeyResponse> {
-    throw new NotImplementedError(context.contextId);
+    const response: Models.ServiceGetUserDelegationKeyResponse = {
+        statusCode: 200,
+        signedOid: "signedOid",
+        signedTid: "signedTid",
+        signedStart: keyInfo.start,
+        signedExpiry: keyInfo.expiry,
+        signedService: "signedService",
+        signedVersion: "signedVersion",
+        value: "9NDg72eTTJFdRRQ4CoF8Kw==",
+        requestId: context.contextId,
+        version: BLOB_API_VERSION,
+        clientRequestId: options.requestId,
+        date: context.startTime
+    };
+    return response;
   }
 
   public submitBatch(
